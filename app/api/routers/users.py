@@ -98,7 +98,7 @@ async def get_access_token(
         key="access_token",
         value=access_token,
         httponly=True,  # xss sec.
-        secure=False,    # LOCAL FALSE
+        secure=True,    # LOCAL FALSE
         samesite="none",
         max_age=settings.ACCESS_TOKEN_EXPIRE_MINUTES*60
     )
