@@ -106,7 +106,7 @@ async def get_access_token(
         key="refresh_token",
         value=refresh_token,
         httponly=True,
-        secure=False, #LOCAL FALSE
+        secure=True, #LOCAL FALSE
         samesite="none",
         max_age=settings.REFRESH_TOKEN_EXP_DAYS*24*60*60
     )
@@ -116,7 +116,7 @@ async def get_access_token(
         key="csrf_token",
         value=csrf_token,
         httponly=False,  #JS can read and send X-CSRF-Token
-        secure=False, #LOCAL FALSE
+        secure=True, #LOCAL FALSE
         samesite="none"
     )
 
@@ -172,7 +172,7 @@ async def refresh_token(
         key="access_token",
         value=access_token,
         httponly=True,
-        secure=False,  # локально False
+        secure=True,  # локально False
         samesite="none",
         max_age=settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60
     )
@@ -180,7 +180,7 @@ async def refresh_token(
         key="refresh_token",
         value=new_refresh_token,
         httponly=True,
-        secure=False,  # локально False
+        secure=True,  # локально False
         samesite="none",
         max_age=settings.REFRESH_TOKEN_EXP_DAYS * 24 * 60 * 60
     )
